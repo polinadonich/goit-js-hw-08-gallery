@@ -71,6 +71,8 @@ const imagesGallery = createGalleryItems(galleryItems);
 
 createGallery.insertAdjacentHTML("beforeend", imagesGallery);
 
+createGallery.addEventListener("click", onGallaryClick)
+
 function createGalleryItems(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
@@ -94,4 +96,36 @@ function createGalleryItems(galleryItems) {
 
 }
 
+function onGallaryClick(evt) {
+ 
+  const isGallaryImages = evt.target.contains("gallery__image");
+  if (!isGallaryImages) {
+    return;
+  }
 
+  const watchImages = evt.target;
+const parentImages = watchImages.closest(".js-gallery")
+
+
+   console.log(evt.target);
+}
+
+const openModalOpen = document.querySelector(".lightbox");
+openModalOpen.classList.add("is-open");
+
+// const closeModalBtn = document.querySelector("data-action=close-lightbox")
+
+// (() => {
+//     const refs = {
+//       openModalBtn: document.querySelector('[data-modal-open]'),
+//       closeModalBtn: document.querySelector('[data-modal-close]'),
+//       modal: document.querySelector('[data-modal]'),
+//     };
+  
+//     refs.openModalBtn.addEventListener('click', toggleModal);
+//     refs.closeModalBtn.addEventListener('click', toggleModal);
+  
+//     function toggleModal() {
+//       refs.modal.classList.toggle('is-hidden');
+//     }
+//   })();
