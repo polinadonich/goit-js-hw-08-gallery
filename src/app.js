@@ -64,10 +64,12 @@ const galleryItems = [
   },
 ];
 
-console.log(createGalleryItems(galleryItems));
 
-const galleryRef = document.querySelector("#gallery")
 
+const createGallery = document.querySelector(".js-gallery");
+const imagesGallery = createGalleryItems(galleryItems);
+
+createGallery.insertAdjacentHTML("beforeend", imagesGallery);
 
 function createGalleryItems(galleryItems) {
   return galleryItems
