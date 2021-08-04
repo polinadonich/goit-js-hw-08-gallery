@@ -110,7 +110,7 @@ const parentImages = watchImages.closest(".js-gallery")
    console.log(evt.target);
 }
 
-const openModalOpen = document.querySelector(".lightbox");
+const openModalOpen = document.querySelector("div.lightbox");
 openModalOpen.classList.add("is-open");
 
 // const closeModalBtn = document.querySelector("data-action=close-lightbox")
