@@ -107,8 +107,10 @@ function createGalleryItems(galleryItems) {
 
 const modal = document.querySelector(".js-lightbox");
 const isOpenModalImg = document.querySelector(".lightbox__image");
+const closeBtn = document.querySelector(".lightbox__button");
+const overlay = document.querySelector(".lightbox__overlay");
 
-const openModal = (evt) => {
+function openModal(evt) {
   evt.preventDefault();
   if (evt.target.nodeName !== "IMG") {
     return;
@@ -119,26 +121,14 @@ const orgImg = watchImages.dataset.source;
   isOpenModalImg.alt = watchImages.alt;
   isOpenModalImg.dataset.index = watchImages.dataset.index;
   modal.classList.add("is-open");
-}
-
+};
 createGallery.addEventListener("click", openModal)
-// const openModal = document.querySelector("div.lightbox");
-// openModal.classList.add("is-open");
 
-// const closeModalBtn = document.querySelector(".lightbox__button");
-
-
-// (() => {
-//     const refs = {
-//       openModalBtn: document.querySelector('[data-modal-open]'),
-//       closeModalBtn: document.querySelector('[data-modal-close]'),
-//       modal: document.querySelector('[data-modal]'),
-//     };
-  
-//     refs.openModalBtn.addEventListener('click', toggleModal);
-//     refs.closeModalBtn.addEventListener('click', toggleModal);
-  
-//     function toggleModal() {
-//       refs.modal.classList.toggle('is-hidden');
-//     }
-//   })();
+function closeModal(evt) {
+  isOpenModalImg.src = " ";
+  isOpenModalImg.alt = " ";
+  isOpenModalImg.dataset.index = " ";
+  modal.classList.remove("is-open")
+};
+closeBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
